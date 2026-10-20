@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "releases": {
+    "controller": {
+      "build": 20261020071642,
+      "version": "20261020071642",
+      "file": "SPACExController.lua",
+      "sha256": "566d1488d536ad668fd32c8a07f63e5c64ac3ea160d7e0550db71df37026bf53"
+    },
+    "mouse": {
+      "build": 20261020071642,
+      "version": "20261020071642",
+      "file": "SPACExMouse.lua",
+      "sha256": "ee219220c3188f26efe0ee1b23070c98b181749fffa84b5973a732e28c2c48d3"
+    }
+  }
+}
