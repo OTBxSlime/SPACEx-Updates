@@ -516,7 +516,7 @@ package.preload["MorpheusStandalone.script_updater"]=function(...)
 local M={busy=false,editing=false,status="Update address not configured."}
 local state=require("MorpheusStandalone.state")
 local native=require("natives")
-local BUILD=20261020071642 -- SPACEX_UPDATE_BUILD
+local BUILD=20261020072558 -- SPACEX_UPDATE_BUILD
 local DEFAULT_FEED="https://raw.githubusercontent.com/OTBxSlime/SPACEx-Updates/main/update.json" -- SPACEX_UPDATE_FEED
 local VARIANT="controller" -- SPACEX_UPDATE_VARIANT
 local FILENAME="SPACExController.lua" -- SPACEX_UPDATE_FILENAME
@@ -525,6 +525,26 @@ local target=root..FILENAME
 local config=target..".updates.txt"
 local url=DEFAULT_FEED
 local auto=true
+local RELEASE_NOTES="- Added View Changelog under Settings > Updates.\n- Connected automatic updates to the SPACEx GitHub release feed.\n- Added the Doomsday Masterminds award shortcut.\n- Included the Time Played editor in both interfaces." -- SPACEX_RELEASE_NOTES
+local notes_version=tostring(BUILD)
+local latest_notes=RELEASE_NOTES
+local function capture_notes(release)
+ if type(release.changelog)~="table"then return end
+ local lines={}
+ for i=1,math.min(#release.changelog,8)do
+  local item=release.changelog[i]
+  if type(item)=="string"then
+   item=item:gsub("[%c]"," "):sub(1,220)
+   if #item>0 then lines[#lines+1]="- "..item end
+  end
+ end
+ if #lines>0 then latest_notes=table.concat(lines,"\n");notes_version=tostring(release.version or release.build)end
+end
+function M.show_changelog()
+ state.notify_info("SPACEx "..notes_version.." changes:\n"..latest_notes)
+ return true
+end
+
 local function valid_url(value)
  return type(value)=="string"and #value<=1500 and value:match("^https://[%w%.%-]+/[^%s]*%.json$")~=nil
 end
@@ -592,6 +612,7 @@ function M.check(quiet)
    assert(type(manifest)=="table"and manifest.schema==1 and type(manifest.releases)=="table","Invalid update manifest")
    local release=manifest.releases[VARIANT]
    assert(type(release)=="table"and type(release.build)=="number"and release.build==math.floor(release.build),"No valid release for "..VARIANT)
+   if release.build>=BUILD then capture_notes(release)end
    if release.build<=BUILD then M.busy=false;notice("SPACEx is up to date.",quiet);return end
    assert(release.file==FILENAME,"Unexpected update filename")
    assert(type(release.sha256)=="string"and #release.sha256==64 and release.sha256:match("^%x+$"),"Invalid release checksum")
@@ -650,6 +671,7 @@ end
 function M.rows()
  return{
   {label="Check for Updates",run=function()return M.check(false)end},
+  {label="View Changelog",run=M.show_changelog},
   {label="Automatic Updates",value=function()return auto and "On"or "Off"end,run=function()
    local previous=auto;auto=not auto;local ok,reason=pcall(save_config);if not ok then auto=previous;return false,tostring(reason)end;return true
   end},

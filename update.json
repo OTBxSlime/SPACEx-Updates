@@ -2,16 +2,28 @@
   "schema": 1,
   "releases": {
     "controller": {
-      "build": 20261020071642,
-      "version": "20261020071642",
+      "build": 20261020072558,
+      "version": "20261020072558",
       "file": "SPACExController.lua",
-      "sha256": "566d1488d536ad668fd32c8a07f63e5c64ac3ea160d7e0550db71df37026bf53"
+      "sha256": "cf7a3e5a0ed98213184fcf15b43f880a8df25fb9f5b5a1cf69628fc7519c51cf",
+      "changelog": [
+        "Added View Changelog under Settings > Updates.",
+        "Connected automatic updates to the SPACEx GitHub release feed.",
+        "Added the Doomsday Masterminds award shortcut.",
+        "Included the Time Played editor in both interfaces."
+      ]
     },
     "mouse": {
-      "build": 20261020071642,
-      "version": "20261020071642",
+      "build": 20261020072558,
+      "version": "20261020072558",
       "file": "SPACExMouse.lua",
-      "sha256": "ee219220c3188f26efe0ee1b23070c98b181749fffa84b5973a732e28c2c48d3"
+      "sha256": "a05ff70751ee3a96029d40bf65d2a516062bc6e57f29adaaf14a1ac3e1ffe102",
+      "changelog": [
+        "Added View Changelog under Settings > Updates.",
+        "Connected automatic updates to the SPACEx GitHub release feed.",
+        "Added the Doomsday Masterminds award shortcut.",
+        "Included the Time Played editor in both interfaces."
+      ]
     }
   }
 }
