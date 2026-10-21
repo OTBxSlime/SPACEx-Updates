@@ -2,27 +2,35 @@
   "schema": 1,
   "releases": {
     "controller": {
-      "build": 20261020072558,
-      "version": "20261020072558",
+      "build": 20261021044436,
+      "version": "20261021044436",
       "file": "SPACExController.lua",
-      "sha256": "cf7a3e5a0ed98213184fcf15b43f880a8df25fb9f5b5a1cf69628fc7519c51cf",
+      "sha256": "43442bee0ad63baa89c25bdbbaa0cba86da68d6e469d524813fe54d7d7dbb1f9",
       "changelog": [
-        "Added View Changelog under Settings > Updates.",
-        "Connected automatic updates to the SPACEx GitHub release feed.",
-        "Added the Doomsday Masterminds award shortcut.",
-        "Included the Time Played editor in both interfaces."
+        "Added a Masterminds achievement request after checking all three Doomsday Masterminds award flags, with GTA confirmation or pending status.",
+        "Added 10th Anniversary weapon finishes, Bottom Dollar clothing and masks, and Benny's conversion access under More Unlocks in both interfaces.",
+        "Added separate Contract, Arena War, Arcade, Drug Wars, and Daily Objective Medals award actions using current game receivers.",
+        "Added Complete Today's Daily Objectives, which uses GTA's objective queue and checks live and saved completion flags; daily medals remain a separate action.",
+        "Added Verify New Unlock Status to check unlock flags and award counters, with missing receivers logged and a compact result popup.",
+        "Fixed Time Played edits above roughly 596 hours and fixed the mouse UI covering the number-entry box; the menu returns after entering or canceling a value.",
+        "Added spaced cyan [NEW] badges in both interfaces. Only the latest additions keep the badge; older markers are removed on the next feature update.",
+        "Changed View Changelog to a centered, scrollable window that stays open until closed with Close, X, an outside click, Esc, or controller A/B."
       ]
     },
     "mouse": {
-      "build": 20261020072558,
-      "version": "20261020072558",
+      "build": 20261021044436,
+      "version": "20261021044436",
       "file": "SPACExMouse.lua",
-      "sha256": "a05ff70751ee3a96029d40bf65d2a516062bc6e57f29adaaf14a1ac3e1ffe102",
+      "sha256": "b9abfca13fead49488598eefa8ef781960e5b11f5332cb7a71d37dde31190b35",
       "changelog": [
-        "Added View Changelog under Settings > Updates.",
-        "Connected automatic updates to the SPACEx GitHub release feed.",
-        "Added the Doomsday Masterminds award shortcut.",
-        "Included the Time Played editor in both interfaces."
+        "Added a Masterminds achievement request after checking all three Doomsday Masterminds award flags, with GTA confirmation or pending status.",
+        "Added 10th Anniversary weapon finishes, Bottom Dollar clothing and masks, and Benny's conversion access under More Unlocks in both interfaces.",
+        "Added separate Contract, Arena War, Arcade, Drug Wars, and Daily Objective Medals award actions using current game receivers.",
+        "Added Complete Today's Daily Objectives, which uses GTA's objective queue and checks live and saved completion flags; daily medals remain a separate action.",
+        "Added Verify New Unlock Status to check unlock flags and award counters, with missing receivers logged and a compact result popup.",
+        "Fixed Time Played edits above roughly 596 hours and fixed the mouse UI covering the number-entry box; the menu returns after entering or canceling a value.",
+        "Added spaced cyan [NEW] badges in both interfaces. Only the latest additions keep the badge; older markers are removed on the next feature update.",
+        "Changed View Changelog to a centered, scrollable window that stays open until closed with Close, X, an outside click, Esc, or controller A/B."
       ]
     }
   }
