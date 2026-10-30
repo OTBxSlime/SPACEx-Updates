@@ -18,19 +18,15 @@
       ]
     },
     "mouse": {
-      "build": 20261021044436,
-      "version": "20261021044436",
+      "build": 20261030123026,
+      "version": "20261030123026",
       "file": "SPACExMouse.lua",
-      "sha256": "b9abfca13fead49488598eefa8ef781960e5b11f5332cb7a71d37dde31190b35",
+      "sha256": "5d2cf2369bc3d4bc261cfbe20d61ac7a0467afcbadb184754a44fdfdbf6e72a4",
       "changelog": [
-        "Added a Masterminds achievement request after checking all three Doomsday Masterminds award flags, with GTA confirmation or pending status.",
-        "Added 10th Anniversary weapon finishes, Bottom Dollar clothing and masks, and Benny's conversion access under More Unlocks in both interfaces.",
-        "Added separate Contract, Arena War, Arcade, Drug Wars, and Daily Objective Medals award actions using current game receivers.",
-        "Added Complete Today's Daily Objectives, which uses GTA's objective queue and checks live and saved completion flags; daily medals remain a separate action.",
-        "Added Verify New Unlock Status to check unlock flags and award counters, with missing receivers logged and a compact result popup.",
-        "Fixed Time Played edits above roughly 596 hours and fixed the mouse UI covering the number-entry box; the menu returns after entering or canceling a value.",
-        "Added spaced cyan [NEW] badges in both interfaces. Only the latest additions keep the badge; older markers are removed on the next feature update.",
-        "Changed View Changelog to a centered, scrollable window that stays open until closed with Close, X, an outside click, Esc, or controller A/B."
+        "Added blue nebula video playback to the mouse UI, including built-in animation frames for updates.",
+        "Added blurred control and section backgrounds, black star hover effects, and matching sidebar highlights.",
+        "Fixed six reproduced Lua issues in heist lookups, audit output, diagnostics, imports, and protection error reporting.",
+        "Preserved model-guard quarantine; live protection crashes remain under investigation."
       ]
     }
   }
