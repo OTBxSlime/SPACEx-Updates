@@ -366,12 +366,13 @@ end
 return {write=function(kind,index)
  local source=frames[kind]and frames[kind][index+1]
  assert(source,'Missing embedded animation frame')
- local path=paths.game..'/scripts/spacex-nebula-'..kind..'-'..index..'.jpg'
+ local path=paths.game..'/scripts/spacex-nebula-v2-'..kind..'-'..index..'.jpg'
  local bytes=decode(source)
  local handle=file.open(path,{create_if_not_exists=true})
  assert(handle and handle.valid,'Could not extract animation frame')
  handle.text=bytes
- assert(handle.text==bytes,'Animation frame readback failed')
+ -- gui.load_image validates the decoded file; do not reject a binary image
+ -- based on a text-mode readback from the still-open writer.
  return path
 end}
 end
@@ -379,22 +380,45 @@ package.preload["MorpheusMouse.galaxy_background"]=function(...)
 local M={frames={background={},header={},blur={}},failed={}}
 local tint=color(255,255,255,255)
 local base=color(4,7,16,255)
+local function usable(image)
+ if not image then return false end
+ local ok,width,height=pcall(function()return tonumber(image.scale.x),tonumber(image.scale.y)end)
+ return ok and width and height and width>0 and height>0
+end
+local function load_image(path)
+ if type(file)=='table'and type(file.exists)=='function'then
+  local ok,exists=pcall(file.exists,path)
+  if ok and not exists then return nil,'Image file is missing'end
+ end
+ local ok,image=pcall(gui.load_image,path)
+ if not ok then return nil,tostring(image)end
+ if not usable(image)then return nil,'Image has no decoded dimensions'end
+ return image
+end
 local function frame(kind)
  local now=util.get_tick_count()
  local index=math.floor(now/100)%60
- local cache=M.frames[kind]
- if not cache[index]and not M.failed[kind..index]then
-  local path=paths.game..'/scripts/MorpheusMouse/assets/dynamic_blue_nebula/'..kind..string.format('-%02d.png',index)
-  local ok,image=pcall(gui.load_image,path)
-  if not ok or not image then
-   ok,image=pcall(function()
-    local extracted=require('MorpheusMouse.orbit_embedded').write(kind,index)
-    return gui.load_image(extracted)
-   end)
-  end
-  if ok and image then cache[index]=image else M.failed[kind..index]=true;print('SPACEx GIF frame unavailable: '..tostring(image))end
+ local cache=M.frames[kind];local key=kind..index
+ if usable(cache[index])then return cache[index]end
+ cache[index]=nil
+ local retry=M.failed[key]
+ if type(retry)=='number'and now<retry and retry-now<=2000 then return nil end
+ local path=paths.game..'/scripts/MorpheusMouse/assets/dynamic_blue_nebula/'..kind..string.format('-%02d.png',index)
+ local image,reason=load_image(path)
+ if not image then
+  local ok,extracted=pcall(function()return require('MorpheusMouse.orbit_embedded').write(kind,index)end)
+  if ok then image,reason=load_image(extracted)else reason=tostring(extracted)end
  end
- return cache[index]
+ if image then
+  cache[index]=image;M.failed[key]=nil
+  M.reported=M.reported or{}
+  if not M.reported[kind]then M.reported[kind]=true;print('SPACEx theme | ready | '..kind)end
+ else
+  M.failed[key]=now+2000
+  M.warned=M.warned or{}
+  if not M.warned[kind]then M.warned[kind]=true;print('SPACEx theme | image unavailable | '..kind..' | '..tostring(reason))end
+ end
+ return image
 end
 function M.hover(pos,size,radius)
  if size.x<=0 or size.y<=0 then return end
@@ -726,7 +750,7 @@ package.preload["MorpheusMouse.script_updater"]=function(...)
 local M={busy=false,editing=false,status="Update address not configured."}
 local state=require("MorpheusMouse.state")
 local native=require("natives")
-local BUILD=20261030123026 -- SPACEX_UPDATE_BUILD
+local BUILD=20261101043518 -- SPACEX_UPDATE_BUILD
 local DEFAULT_FEED="https://raw.githubusercontent.com/OTBxSlime/SPACEx-Updates/main/update.json" -- SPACEX_UPDATE_FEED
 local VARIANT="mouse" -- SPACEX_UPDATE_VARIANT
 local FILENAME="SPACExMouse.lua" -- SPACEX_UPDATE_FILENAME
