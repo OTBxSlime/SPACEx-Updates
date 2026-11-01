@@ -18,16 +18,15 @@
       ]
     },
     "mouse": {
-      "build": 20261101043518,
-      "version": "20261101043518",
+      "build": 20261101053218,
+      "version": "20261101053218",
       "file": "SPACExMouse.lua",
-      "sha256": "b9dddc3519d41c386ee4918d8c307b74e28f2e33396891009bb4b060c435189b",
+      "sha256": "cb47e60bead6ee89e6734b142f66e74b81dc400d5b1072df5fcbabd18c0afff7",
       "changelog": [
-        "Fixed portable blue nebula loading on installations without local animation files, rejected undecoded textures, and added retries for failed image loads.",
-        "Added blue nebula video playback to the mouse UI, including built-in animation frames for updates.",
-        "Added blurred control and section backgrounds, black star hover effects, and matching sidebar highlights.",
-        "Fixed six reproduced Lua issues in heist lookups, audit output, diagnostics, imports, and protection error reporting.",
-        "Preserved model-guard quarantine; live protection crashes remain under investigation."
+        "Merged bounded file diagnostics and protection write verification while retaining event protection setup.",
+        "Merged flatbed towing, rechargeable NOS and brighter local exhaust backfire with cleanup.",
+        "Preserved the current PNG background renderer, existing settings and model-guard quarantine.",
+        "PNG animation assets still require the accompanying theme package."
       ]
     }
   }
