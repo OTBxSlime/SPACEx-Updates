@@ -18,15 +18,19 @@
       ]
     },
     "mouse": {
-      "build": 20261101053218,
-      "version": "20261101053218",
+      "build": 20261103092153,
+      "version": "20261103092153",
       "file": "SPACExMouse.lua",
-      "sha256": "cb47e60bead6ee89e6734b142f66e74b81dc400d5b1072df5fcbabd18c0afff7",
+      "sha256": "f2253de46e868e940b83dde153df93fefbeff714efc829d2cea10e7b74afebe1",
       "changelog": [
-        "Merged bounded file diagnostics and protection write verification while retaining event protection setup.",
-        "Merged flatbed towing, rechargeable NOS and brighter local exhaust backfire with cleanup.",
-        "Preserved the current PNG background renderer, existing settings and model-guard quarantine.",
-        "PNG animation assets still require the accompanying theme package."
+        "Added 23 self prop attachments and seven vehicle backpacks, including cars on your back; 36 self attachments total.",
+        "Corrected aimbot vehicle-occupant targeting, removed assumed vehicle lead and duplicate camera input, and added firing camera recoil compensation. Live accuracy testing remains ongoing.",
+        "Added detailed Freemode script-host request and ownership logging; successful requests are checked against script.host readback.",
+        "Added vehicle Stance sliders and Engine & Radio sections, GTA engine sound profiles, and Samurai-style backfire.",
+        "Separated Heists and Businesses in the sidebar with individual business tabs; retained the current business controls and fixes.",
+        "Expanded flatbed towing to configurable carriers and all vehicle types, with cargo cleanup and occupancy checks.",
+        "Added Fast Run unlock and Remove Fog; removed the requested verification, NPC Settings, Camera Settings and Bodyguards tabs.",
+        "Preserved existing settings and the PNG theme renderer. Fresh installs need the accompanying complete package; compiled and simulated checks do not establish in-game results."
       ]
     }
   }
