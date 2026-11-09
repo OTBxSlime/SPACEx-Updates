@@ -1,24 +1,24 @@
 {
   "schema": 1,
   "releases": {
+    "mouse": {
+      "version": "2026.11.09",
+      "build": 20261109111511,
+      "file": "SPACExMouse.lua",
+      "sha256": "13b7648fd2d7e06fcca4c5097992823a3c2952fde82cbbcd2eaf9368911670bd",
+      "changelog": [
+        "New build published from the current working script.",
+        "Reload the script after the update installs."
+      ]
+    },
     "controller": {
       "version": "2026.10.21",
       "build": 20261021044436,
       "file": "SPACExController.lua",
       "sha256": "43442bee0ad63baa89c25bdbbaa0cba86da68d6e469d524813fe54d7d7dbb1f9",
       "changelog": [
-        "Added the controller channel to the update feed so SPACExController.lua can check for updates.",
-        "This build is unchanged from the 21 October upload."
-      ]
-    },
-    "mouse": {
-      "version": "2026.11.02",
-      "build": 20261102131317,
-      "file": "SPACExMouse.lua",
-      "sha256": "40a4a60fa42e59af41e1eebbd5fa73ed171c6686aa171a9ccb314b31062057ea",
-      "changelog": [
-        "Rebuilt the manifest against the exact file now hosted, so the checksum check passes.",
-        "No script changes on this build."
+        "Added the controller channel to the update feed.",
+        "This build is unchanged."
       ]
     }
   }
