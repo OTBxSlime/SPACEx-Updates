@@ -5,10 +5,20 @@
       "version": "2026.11.02",
       "build": 20261102131317,
       "file": "SPACExMouse.lua",
-      "sha256": "95528d93904fbc7a9e466fc6347efefc48df2c276a1ac221db27a3bb0d5c8687",
+      "sha256": "ecafb70867e0faafc7400e51ddbafcda85283e2bbbc739a6b806fab1b01e03f8",
       "changelog": [
-        "Published the current working SPACExMouse.lua as the baseline GitHub release.",
-        "Preserved existing script behavior, custom fixes, and theme configuration."
+        "Republished the 9 November SPACExMouse.lua upload with a manifest checksum that matches the file byte for byte.",
+        "Update checks no longer stop with a checksum mismatch on this build."
+      ]
+    },
+    "controller": {
+      "version": "2026.10.21",
+      "build": 20261021044436,
+      "file": "SPACExController.lua",
+      "sha256": "43442bee0ad63baa89c25bdbbaa0cba86da68d6e469d524813fe54d7d7dbb1f9",
+      "changelog": [
+        "Added the controller channel to the update feed so SPACExController.lua can check for updates.",
+        "This build is unchanged from the 21 October upload."
       ]
     }
   }
