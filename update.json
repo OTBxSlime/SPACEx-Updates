@@ -1,16 +1,6 @@
 {
   "schema": 1,
   "releases": {
-    "mouse": {
-      "version": "2026.11.02",
-      "build": 20261102131317,
-      "file": "SPACExMouse.lua",
-      "sha256": "ecafb70867e0faafc7400e51ddbafcda85283e2bbbc739a6b806fab1b01e03f8",
-      "changelog": [
-        "Republished the 9 November SPACExMouse.lua upload with a manifest checksum that matches the file byte for byte.",
-        "Update checks no longer stop with a checksum mismatch on this build."
-      ]
-    },
     "controller": {
       "version": "2026.10.21",
       "build": 20261021044436,
@@ -19,6 +9,16 @@
       "changelog": [
         "Added the controller channel to the update feed so SPACExController.lua can check for updates.",
         "This build is unchanged from the 21 October upload."
+      ]
+    },
+    "mouse": {
+      "version": "2026.11.02",
+      "build": 20261102131317,
+      "file": "SPACExMouse.lua",
+      "sha256": "40a4a60fa42e59af41e1eebbd5fa73ed171c6686aa171a9ccb314b31062057ea",
+      "changelog": [
+        "Rebuilt the manifest against the exact file now hosted, so the checksum check passes.",
+        "No script changes on this build."
       ]
     }
   }
